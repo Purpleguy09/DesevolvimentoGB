@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>TESTE SITE</title>
+    <meta name="description" content="Starter index.html" />
+
+    <style>
+        :root{
+            --bg:#000000; --card:#000000; --muted:#A020F0; --accent:#FFD700;
+            --radius:50px; --maxw:1300px;
+        }
+
+        *{box-sizing:border-box}
+        html,body{height:100%}
+
+        body{
+            margin:0; 
+            font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+            background:linear-gradient(180deg,#071024 0%, #0b1220 60%); 
+            color:#A020F0;
+            display:flex; 
+            align-items:center; 
+            justify-content:center; 
+            padding:32px;
+        }
+
+        .wrap{
+            width:100%; 
+            max-width:var(--maxw); 
+            background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);
+            border-radius:var(--radius); 
+            padding:28px; 
+            box-shadow:0 10px 30px rgba(2,6,23,0.6);
+            backdrop-filter:blur(6px);
+        }
+
+        header{
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            margin-bottom:18px
+        }
+
+        .brand{
+            display:flex;
+            gap:12px;
+            align-items:center
+        }
+
+        /* AQUI ESTÁ SUA IMAGEM AGORA 👇 */
+        .logo{
+            width:70px;
+            height:70px;
+            border-radius:10px;
+            background-image: url("https://i.pinimg.com/originals/50/c5/f1/50c5f1847013012ee0f25f67fdddb8d9.gif");
+            background-size: cover;
+            background-position: center;
+        }
+
+        h1{font-size:1.1rem;margin:0}
+
+        p.lead{
+            margin:4px 0 0;
+            color:var(--muted);
+            font-size:0.95rem
+        }
+
+        main{
+            display:grid;
+            grid-template-columns:1fr 320px;
+            gap:20px
+        }
+
+        .card{
+            background:var(--card);
+            border-radius:12px;
+            padding:18px
+        }
+
+        .hero{
+            min-height:220px;
+            display:flex;
+            flex-direction:column;
+            gap:12px
+        }
+
+        .btn{
+            display:inline-block;
+            padding:10px 14px;
+            border-radius:10px;
+            background:var(--accent);
+            color:purple;
+            text-decoration:none;
+            font-weight:600
+        }
+
+        footer{
+            margin-top:16px;
+            color:var(--muted);
+            font-size:0.85rem;
+            text-align:center
+        }
+
+        @media (max-width:880px){
+            main{grid-template-columns:1fr}
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="wrap" role="main">
+    <header>
+        <div class="brand">
+            <div class="logo" aria-hidden="true"></div>
+            <div>
+                <h1>GB REI DA COMPUTARIA</h1>
+                <p class="lead">feito só o front-end</p>
+            </div>
+        </div>
+
+        <nav aria-label="top">
+            <a class="btn" href="#" id="action">Começar agora</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="card hero" aria-labelledby="intro">
+            <h2 id="intro">Bem vindo</h2>
+            <p style="color:var(--muted);margin:0 0 8px">
+                Site test para treino de desenvolvimento front-end
+            </p>
+
+            <div style="margin-top:auto;display:flex;gap:8px;flex-wrap:wrap">
+                <a class="btn" href="#features">Ferramentas</a>
+                <a class="btn" href="#docs" style="background:#0ea5a4">Documentos</a>
+            </div>
+        </section>
+
+        <aside class="card" aria-labelledby="features">
+            <h3 id="features">objetivos</h3>
+            <ul style="color:var(--muted);padding-left:18px">
+                <li>focado em treino</li>
+                <li>estudando sobre HTML</li>
+                <li>testando coisas</li>
+            </ul>
+        </aside>
+    </main>
+
+    <footer>
+        <small>© <span id="year"></span> Meu projeto — um simples template</small>
+    </footer>
+</div>
+
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('action').addEventListener('click', function(e){
+        e.preventDefault();
+        const el = document.getElementById('features');
+        if(el) el.scrollIntoView({behavior:'smooth', block:'center'});
+    });
+</script>
+
+</body>
+</html>
